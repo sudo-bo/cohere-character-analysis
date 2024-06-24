@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import cohere
 import re
 from dotenv import load_dotenv
@@ -7,6 +8,7 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 COHERE_API_KEY = os.getenv('COHERE_API_KEY')
 co = cohere.Client(COHERE_API_KEY)
